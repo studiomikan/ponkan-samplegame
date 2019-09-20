@@ -1,0 +1,5 @@
+# ゲームの開始スクリプト
+|game_start_mark:ゲーム開始
+;call file: "script/init_system.pon"
+;jump file: "scenario/sample-game.pon"
+;s
