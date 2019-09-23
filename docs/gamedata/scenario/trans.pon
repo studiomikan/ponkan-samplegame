@@ -24,7 +24,7 @@ Ponkan3は吉里吉里/KAG3と似た仕組みを採用しており、$
 では、いくつかのトランジションを試してみます。
 ;lbr
 
-夕方にフェード。
+別背景にフェード。
 ;pretrans
   ;image lay: "base", file: "image/bg02.jpg"
   ;trans time: 1000
