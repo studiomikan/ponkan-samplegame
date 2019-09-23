@@ -4,7 +4,7 @@
   "description": "ponkan3 develop tool",
   "main": "ponkan3.js",
   "scripts": {
-    "start": "http-server -p 8080 -o http://localhost:8080/index.html"
+    "start": "http-server docs -p 8080 -o http://localhost:8080/index.html"
   },
   "author": "",
   "license": "MIT",
