@@ -1,10 +1,10 @@
-Ponkan3.Logger.level = Ponkan3.Logger.LEVEL_DEBUG;
+Ponkan3.Logger.level = Ponkan3.Logger.LEVEL_INFO;
 var width = 1280;
 var height = 720;
 var ponkan = new Ponkan3("game", {
   gameVersion: "0.0.0",
   gameDataDir: "./gamedata",
-  developMode: true,
+  developMode: false,
   saveDataPrefix: "ponkan-sample",
   width: width,
   height: height,
