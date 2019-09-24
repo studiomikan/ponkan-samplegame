@@ -22,7 +22,7 @@ Web版では読み込みに時間がかかります。
 ;lbr
 
 効果音を音量100%で再生。
-;loadsound "buf": "se", file: "sound/pekowave1.wav"
+;loadsound "buf": "se", file: "sound/pekowave1.mp3"
 ;soundopt buf: "se", volume: 1.0
 ;playsound buf: "se"
 ;waitsound buf: "se", canskip: false
