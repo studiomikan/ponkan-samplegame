@@ -54,7 +54,7 @@
 ###########################
 # あいさつ
 ###########################
-|game_start_save_point:はじめに
+~game_start_save_point|はじめに
 ;win_mes
 こんにちは。
 ;lbr
