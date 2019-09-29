@@ -1,16 +1,17 @@
 {
-  "name": "ponkan3-game-template",
+  "name": "ponkan3-sample-game",
   "version": "1.0.0",
-  "description": "ponkan3 game template",
+  "description": "ponkan3 sample game",
   "main": "main.js",
   "author": "okayu",
+  "private": true,
   "scripts": {
     "pack": "electron-builder --dir",
     "build": "electron-builder",
     "build-win": "electron-builder --win",
     "build-mac": "electron-builder --mac",
     "start-win": "electron .",
-    "start": "http-server -p 8080 -o http://localhost:8080/index.html"
+    "start": "http-server docs -p 8080 -o http://localhost:8080/index.html"
   },
   "build": {
     "appId": "net.studiomikan.ponkan3.template",
