@@ -5,7 +5,7 @@ var ponkan = new Ponkan3("game", {
   gameVersion: "0.0.0",
   gameDataDir: "./gamedata",
   developMode: false,
-  saveDataPrefix: "ponkan-sample",
+  saveDataPrefix: "ponkan-samplegame",
   width: width,
   height: height,
   soundBufferCount: 5,
