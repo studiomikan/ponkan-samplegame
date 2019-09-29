@@ -20,7 +20,7 @@ var valueToIndex = function(varName, value) {
 
 tv.system.config= {
   // 背景画像
-  bg: "image/config.png",
+  bg: "config/config.png",
 
   // ボタン用レイヤの一覧
   btnLayList: [
@@ -311,7 +311,7 @@ tv.varName = "systemVolume";
 ;layopt lay: "&tv.system.config.btnLayMap.close", x: 0, y: 0, width: 1280, height: 100
 ;imagebutton {
   lay:       "&tv.system.config.btnLayMap.close",
-  imagefile: "image/close_button.png",
+  imagefile: "config/close_button.png",
   x:         1280-30-24,
   y:         23,
   jump:      true,

@@ -17,17 +17,17 @@ tv.dialog = {
     centerY: 310
   },
   bg: {
-    file: "image/dialog.png",
+    file: "dialog/dialog.png",
     width: 1280,
     height: 720
   },
   yes: {
-    file: "image/dialog_yes.png",
+    file: "dialog/dialog_yes.png",
     x: 1280/2-200-15,
     y: 380
   },
   no: {
-    file: "image/dialog_no.png",
+    file: "dialog/dialog_no.png",
     x: 1280/2+15,
     y: 380
   },

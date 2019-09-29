@@ -10,7 +10,7 @@
 if (tv.system == null) tv.system = {};
 tv.system.save = {
   // 背景画像
-  bg: "image/save.png",
+  bg: "saveload/save.png",
 
   // ボタン用レイヤ
   btnLay: tv.layer.save + 1,
@@ -130,7 +130,7 @@ tv.system.save = {
   ;if exp: "ponkan.existSaveData(tv.saveNum)"
     ;imagebutton {
       lay:       "&tv.system.save.btnLay",
-      imagefile: "image/close_button_small.png",
+      imagefile: "saveload/close_button_small.png",
       x:         "&tv.x + (550 - 25)",
       y:         "&tv.y + 10",
       exp:       "&tv.deleteExp",
@@ -183,7 +183,7 @@ PAGE:
 # セーブ画面の閉じるボタン
 ;imagebutton {
   lay:       "&tv.system.save.btnLay",
-  imagefile: "image/close_button.png",
+  imagefile: "saveload/close_button.png",
   x:         "&1280 - 30 - 24",
   y:         23,
   jump:      true,
@@ -223,7 +223,7 @@ PAGE:
 #=========================================================================================
 *on_click_save_button
 -tv.dialogMessage = "No." + (tv.clickedSaveNum + 1) + " にセーブしますか？";
-;call file: "script/confirm_dialog.pon", label: "show_dialog"
+;call file: "dialog/confirm_dialog.pon", label: "show_dialog"
 ;if exp: "tv.dialogResult"
   ;save num: "&tv.clickedSaveNum"
   -tv.system.save.transTime = 100;
@@ -239,7 +239,7 @@ PAGE:
 #=========================================================================================
 *on_click_delete_button
 -tv.dialogMessage = "No." + (tv.clickedDeleteNum + 1) + " のデータを削除しますか？";
-;call file: "script/confirm_dialog.pon", label: "show_dialog"
+;call file: "dialog/confirm_dialog.pon", label: "show_dialog"
 ;if exp: "tv.dialogResult"
   ;deletesavedata num: "&tv.clickedDeleteNum"
   -tv.system.save.transTime = 100;

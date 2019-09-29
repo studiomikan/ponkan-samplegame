@@ -11,7 +11,7 @@ tv.systembutton = {
     {
       text:  "Save",
       image: "sysbtn/save.png",
-      file:  "script/save.pon",
+      file:  "saveload/save.pon",
       label: "save_start",
       exp:   "",
       x:     0,
@@ -20,7 +20,7 @@ tv.systembutton = {
     {
       text:  "Load",
       image: "sysbtn/load.png",
-      file:  "script/load.pon",
+      file:  "saveload/load.pon",
       label: "load_start",
       exp:   "",
       x:     100,
@@ -56,7 +56,7 @@ tv.systembutton = {
     {
       text:  "Config",
       image: "sysbtn/config.png",
-      file:  "script/config.pon",
+      file:  "config/config.pon",
       label: "config_start",
       exp:   "",
       x:     500,
