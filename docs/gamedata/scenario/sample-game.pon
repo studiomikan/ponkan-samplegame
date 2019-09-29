@@ -8,7 +8,7 @@
 ;layalias name: "base", lay: "0"
 ;layalias name: "chara1", lay: "1"
 ;layalias name: "chara2", lay: "2"
-;layalias name: "button", lay: "&tv.layer.systembutton+1"
+;layalias name: "button", lay: "&tv.layer.menubutton"
 ;layalias name: "rule1", lay: "4"
 ;layalias name: "rule2", lay: "5"
 ;layalias name: "sysbtn", lay: "&tv.layer.systembutton"
