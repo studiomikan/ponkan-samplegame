@@ -2,6 +2,8 @@
 
 [Ponkan3](https://github.com/okayumoka/ponkan3) の基本的な機能を紹介するサンプルゲームです。
 
+Play: https://okayumoka.github.io/ponkan3-samplegame/
+
 ## External Libraries used by ponkan3-samplegame
 
 ### Fonts
