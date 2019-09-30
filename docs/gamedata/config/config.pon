@@ -1,12 +1,61 @@
+#=========================================================================================
 # コンフィグ画面
+#
+# 「設定」の部分で使用するレイヤー、背景画像等を設定して使用してください。
+#=========================================================================================
 *config_start
-;tempsave num: 0
-;historyopt enabled: false, output: false
-;rclick enabled: false
 
+#==========================================
+# ▼▼ 設定 ここから ▼▼
+#==========================================
 ---
 if (tv.system == null) tv.system = {};
+tv.system.config = {
+  //  背景画像
+  bg: "config/config.png",
 
+  // 背景用レイヤー
+  baseLay: 26,
+
+  // ボタン用レイヤーの一覧
+  // ボタン表示用に9レイヤー使用します。
+  // カンマ区切りで9レイヤー指定してください。
+  btnLayList: [
+    27, 28, 29, 30, 31, 32, 33, 34, 35
+  ],
+
+  // トランジションの時間
+  transTime: 200,
+
+  // ボタンと値の対応
+  // 横一列に並んでいる各ボタンと、ボタン押下時の値の対応です。
+  // たとえば、
+  //    unreadTextSpeed: [ 40, 38, 36, 34, 32, 30, 28, 26, 24, 22, 20, 18, 16, 14, 12, 10, 8, 6, 4, 2, 0 ],
+  // このように設定しているときは、
+  // 一番左のボタンを押下すると未読テキストスピードが40、
+  // 一番右のボタンを押下すると未読テキストスピードが0に設定されます。
+  values: {
+    // 未読テキストスピードの値一覧
+    unreadTextSpeed: [ 40, 38, 36, 34, 32, 30, 28, 26, 24, 22, 20, 18, 16, 14, 12, 10, 8, 6, 4, 2, 0 ],
+    // 既読テキストスピードの値一覧
+    readTextSpeed:   [ 40, 38, 36, 34, 32, 30, 28, 26, 24, 22, 20, 18, 16, 14, 12, 10, 8, 6, 4, 2, 0 ],
+    // オートモードスピードの値一覧
+    autoModeSpeed:   [ 10000, 9500, 9000, 8500, 8000, 7500, 7000, 6500, 6000, 5500, 5000, 4500, 4000, 3500, 3000, 2500, 2000, 1500, 1000, 500, 0 ],
+    // BGMの音量の値一覧
+    bgmVolume:       [ 0, 0.05, 0.10, 0.15, 0.20, 0.25, 0.30, 0.35, 0.40, 0.45, 0.50, 0.55, 0.60, 0.65, 0.70, 0.75, 0.80, 0.85, 0.90, 0.95, 1.00 ],
+    // 効果音の音量の値一覧
+    seVolume:        [ 0, 0.05, 0.10, 0.15, 0.20, 0.25, 0.30, 0.35, 0.40, 0.45, 0.50, 0.55, 0.60, 0.65, 0.70, 0.75, 0.80, 0.85, 0.90, 0.95, 1.00 ],
+    // システム効果音の音量の値一覧
+    systemVolume:    [ 0, 0.05, 0.10, 0.15, 0.20, 0.25, 0.30, 0.35, 0.40, 0.45, 0.50, 0.55, 0.60, 0.65, 0.70, 0.75, 0.80, 0.85, 0.90, 0.95, 1.00 ],
+  },
+};
+---
+#==========================================
+# ▲▲ 設定 ここまで ▲▲
+#==========================================
+
+
+---
 var valueToIndex = function(varName, value) {
   var values = tv.system.config.values[varName];
   for (var i = 0; i < values.length; i++) {
@@ -18,48 +67,29 @@ var valueToIndex = function(varName, value) {
   return values.length - 1;
 };
 
-tv.system.config= {
-  // 背景画像
-  bg: "config/config.png",
+var mergeObject = function(base, obj) {
+  Object.keys(obj).forEach((key) => {
+    base[key] = obj[key];
+  });
+  return base;
+};
 
-  // ボタン用レイヤの一覧
-  btnLayList: [
-    tv.layer.config + 1,
-    tv.layer.config + 2,
-    tv.layer.config + 3,
-    tv.layer.config + 4,
-    tv.layer.config + 5,
-    tv.layer.config + 6,
-    tv.layer.config + 7,
-    tv.layer.config + 8,
-    tv.layer.config + 9
-  ].join(","),
+var exObj = {
+  btnLay: tv.system.config.btnLayList.join(","),
 
-  // ボタン用レイヤ
+  // 値名とボタン用レイヤーの紐づけ
   btnLayMap: {
-    close:           tv.layer.config + 1,
-    unreadTextSpeed: tv.layer.config + 2,
-    readTextSpeed:   tv.layer.config + 3,
-    autoModeSpeed:   tv.layer.config + 4,
-    skipMode:        tv.layer.config + 5,
-    bgmVolume:       tv.layer.config + 6,
-    seVolume:        tv.layer.config + 7,
-    systemVolume:    tv.layer.config + 8,
-    scaleMode:       tv.layer.config + 9,
+    close:           tv.system.config.btnLayList[0],
+    unreadTextSpeed: tv.system.config.btnLayList[1],
+    readTextSpeed:   tv.system.config.btnLayList[2],
+    autoModeSpeed:   tv.system.config.btnLayList[3],
+    skipMode:        tv.system.config.btnLayList[4],
+    bgmVolume:       tv.system.config.btnLayList[5],
+    seVolume:        tv.system.config.btnLayList[6],
+    systemVolume:    tv.system.config.btnLayList[7],
+    scaleMode:       tv.system.config.btnLayList[8],
   },
-
-  // トランジションの時間
-  transTime: 200,
-
-  // 値関係
-  values: {
-    unreadTextSpeed: [ 40, 38, 36, 34, 32, 30, 28, 26, 24, 22, 20, 18, 16, 14, 12, 10, 8, 6, 4, 2, 0 ],
-    readTextSpeed:   [ 40, 38, 36, 34, 32, 30, 28, 26, 24, 22, 20, 18, 16, 14, 12, 10, 8, 6, 4, 2, 0 ],
-    autoModeSpeed:   [ 10000, 9500, 9000, 8500, 8000, 7500, 7000, 6500, 6000, 5500, 5000, 4500, 4000, 3500, 3000, 2500, 2000, 1500, 1000, 500, 0 ],
-    bgmVolume:       [ 0, 0.05, 0.10, 0.15, 0.20, 0.25, 0.30, 0.35, 0.40, 0.45, 0.50, 0.55, 0.60, 0.65, 0.70, 0.75, 0.80, 0.85, 0.90, 0.95, 1.00 ],
-    seVolume:        [ 0, 0.05, 0.10, 0.15, 0.20, 0.25, 0.30, 0.35, 0.40, 0.45, 0.50, 0.55, 0.60, 0.65, 0.70, 0.75, 0.80, 0.85, 0.90, 0.95, 1.00 ],
-    systemVolume:    [ 0, 0.05, 0.10, 0.15, 0.20, 0.25, 0.30, 0.35, 0.40, 0.45, 0.50, 0.55, 0.60, 0.65, 0.70, 0.75, 0.80, 0.85, 0.90, 0.95, 1.00 ],
-  },
+  // 値名の一覧
   valueNames: [
     "unreadTextSpeed",
     "readTextSpeed",
@@ -106,7 +136,13 @@ tv.system.config= {
     tv.system.config.drawTarget = [varName];
   },
 };
+mergeObject(tv.system.config, exObj);
 ---
+
+
+;tempsave num: 0
+;historyopt enabled: false, output: false
+;rclick enabled: false
 
 # 初期値設定
 ---
@@ -123,32 +159,34 @@ tv.system.config.drawTarget = [
   "systemVolume",
   "scaleMode",
 ];
+tv.system.config.fadeinTime = tv.system.config.transTime;
+tv.system.config.fadeoutTime = tv.system.config.transTime;
 ---
 
-#=========================================================================================
+#==========================================
 # 描画処理
-#=========================================================================================
+#==========================================
 *draw
 ;pretrans
 
 # 背景の設定
 ;if exp: "tv.system.config.drawTarget.indexOf('base') >= 0"
   ;image {
-    lay: "&tv.layer.config",
+    lay: "&tv.system.config.baseLay",
     file: "&tv.system.config.bg",
     visible: false,
     x: 0,
     y: 0
   }
-  ;layopt lay: "&tv.layer.config", visible: true
+  ;layopt lay: "&tv.system.config.baseLay", visible: true
 ;endif
 
 # ボタン用レイヤの設定
 ;if exp: "tv.system.config.drawTarget.indexOf('initlayers') >= 0"
-  ;layopt lay: "&tv.system.config.btnLayList", x: 0, y: 0, width: 1280, height: 24, visible: true
-  ;mesopt lay: "&tv.system.config.btnLayList", color: 0x000000, fontsize: 20, lineheight: 20, color: 0x000000
-  ;clear lay: "&tv.system.config.btnLayList"
-  ;clearbuttons lay: "&tv.system.config.btnLayList"
+  ;layopt lay: "&tv.system.config.btnLay", x: 0, y: 0, width: 1280, height: 24, visible: true
+  ;mesopt lay: "&tv.system.config.btnLay", color: 0x000000, fontsize: 20, lineheight: 20, color: 0x000000
+  ;clear lay: "&tv.system.config.btnLay"
+  ;clearbuttons lay: "&tv.system.config.btnLay"
 ;endif
 
 # ボタンをロック
@@ -319,25 +357,25 @@ tv.varName = "systemVolume";
 }
 
 # トランジションで表示
-;trans method: "crossfade", time: "&tv.system.config.transTime"
+;trans method: "crossfade", time: "&tv.system.config.fadeinTime"
 ;waittrans canskip: false
 # 二回目移行のトランジションは瞬時
--tv.system.config.transTime = 0;
+-tv.system.config.fadeinTime = 0;
 # 二回目以降の描画対象を削減
 -tv.system.config.drawTarget = [];
 
 *unlock_config_buttons
 # ボタンのロックを解除
-;unlockbuttons lay: "&tv.system.config.btnLayList"
+;unlockbuttons lay: "&tv.system.config.btnLay"
 # 右クリックで画面を終了
 ;rclick jump: true, label: "exit", enabled: true
 ;s
 
 
-#=========================================================================================
+#==========================================
 # 値設定のボタンを設置する
 # 事前設定値：tv.startX, tv.varName
-#=========================================================================================
+#==========================================
 *draw_value_buttons
 ;nowait
 ---
@@ -380,15 +418,15 @@ tv.lay = tv.system.config.btnLayMap[tv.varName];
 ;s
 
 
-#=========================================================================================
+#==========================================
 # コンフィグ画面を終わる
-#=========================================================================================
+#==========================================
 *exit
 ;savesysvar
 ;tempload num: 0, sound: false, toback: true
 ;lockbuttons page: "fore"
 ;lockbuttons page: "back"
-;trans method: "crossfade", time: 200
+;trans method: "crossfade", time: "&tv.system.config.fadeoutTime"
 ;waittrans canskip: false
 ;historyopt enabled: true, output: true
 ;return

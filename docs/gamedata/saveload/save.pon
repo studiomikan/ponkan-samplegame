@@ -1,5 +1,36 @@
+#=========================================================================================
 # セーブ画面
+#
+# 「設定」の部分で使用するレイヤー、背景画像等を設定して使用してください。
+#=========================================================================================
 *save_start
+
+#==========================================
+# ▼▼ 設定 ここから ▼▼
+#==========================================
+---
+if (tv.system == null) tv.system = {};
+tv.system.save = {
+  // 背景画像
+  bg: "saveload/save.png",
+
+  // 背景用レイヤー
+  baseLay: 26,
+
+  // ボタン表示用レイヤー
+  btnLay: 27,
+
+  // テキスト表示用レイヤー
+  textLay: 28,
+
+  // トランジションの時間
+  transTime: 200,
+};
+---
+#==========================================
+# ▲▲ 設定 ここまで ▲▲
+#==========================================
+
 ;tempsave num: 0
 ;historyopt enabled: false
 ;lockscreenshot
@@ -7,40 +38,28 @@
 ;backlay
 
 ---
-if (tv.system == null) tv.system = {};
-tv.system.save = {
-  // 背景画像
-  bg: "saveload/save.png",
-
-  // ボタン用レイヤ
-  btnLay: tv.layer.save + 1,
-  // テキスト用レイヤ
-  textLay: tv.layer.save + 2,
-
-  // トランジションの時間
-  transTime: 200,
-
-  // [内部処理用] セーブ番号
-  savePageNum: 0,
-};
+// [内部処理用] セーブ番号
+tv.system.save.savePageNum = 0;
+tv.system.save.fadeinTime = tv.system.save.transTime;
+tv.system.save.fadeoutTime = tv.system.save.transTime;
 ---
 
-#=========================================================================================
+#==========================================
 # 描画処理
-#=========================================================================================
+#==========================================
 *draw
 
 ;currentpage page: "back"
 
 # 背景の設定
 ;image {
-  lay: "&tv.layer.save",
+  lay: "&tv.system.save.baseLay",
   file: "&tv.system.save.bg",
   visible: false,
   x: 0,
   y: 0
 }
-;layopt lay: "&tv.layer.save", visible: true
+;layopt lay: "&tv.system.save.baseLay", visible: true
 
 # ボタン用レイヤの設定
 ;layopt lay: "&tv.system.save.btnLay", x: 0, y: 0, width: 1280, height: 720, visible: true
@@ -192,7 +211,7 @@ PAGE:
 
 
 # トランジションで表示
-;trans method: "crossfade", time: "&tv.system.save.transTime"
+;trans method: "crossfade", time: "&tv.system.save.fadeinTime"
 ;waittrans canskip: false
 
 *unlock_save_buttons
@@ -204,11 +223,11 @@ PAGE:
 
 
 
-#=========================================================================================
+#==========================================
 # ページ切り替え
-#=========================================================================================
+#==========================================
 *on_click_page_button
--tv.system.save.transTime = 100;
+-tv.system.save.fadeinTime = 100;
 ;if exp: "tv.system.save.savePageNum == tv.clickedPageNum"
   ;jump label: "unlock_save_buttons"
 ;else
@@ -218,15 +237,15 @@ PAGE:
 ;s
 
 
-#=========================================================================================
+#==========================================
 # セーブする
-#=========================================================================================
+#==========================================
 *on_click_save_button
--tv.dialogMessage = "No." + (tv.clickedSaveNum + 1) + " にセーブしますか？";
+-tv.system.dialogMessage = "No." + (tv.clickedSaveNum + 1) + " にセーブしますか？";
 ;call file: "dialog/confirm_dialog.pon", label: "show_dialog"
-;if exp: "tv.dialogResult"
+;if exp: "tv.system.dialogResult"
   ;save num: "&tv.clickedSaveNum"
-  -tv.system.save.transTime = 100;
+  -tv.system.save.fadeinTime = 100;
   ;jump label: "draw"
 ;else
   ;jump label: "unlock_save_buttons"
@@ -234,15 +253,15 @@ PAGE:
 ;s
 
 
-#=========================================================================================
+#==========================================
 # 削除する
-#=========================================================================================
+#==========================================
 *on_click_delete_button
--tv.dialogMessage = "No." + (tv.clickedDeleteNum + 1) + " のデータを削除しますか？";
+-tv.system.dialogMessage = "No." + (tv.clickedDeleteNum + 1) + " のデータを削除しますか？";
 ;call file: "dialog/confirm_dialog.pon", label: "show_dialog"
-;if exp: "tv.dialogResult"
+;if exp: "tv.system.dialogResult"
   ;deletesavedata num: "&tv.clickedDeleteNum"
-  -tv.system.save.transTime = 100;
+  -tv.system.save.fadeinTime = 100;
   ;jump label: "draw"
 ;else
   ;jump label: "unlock_save_buttons"
@@ -250,12 +269,12 @@ PAGE:
 ;s
 
 
-#=========================================================================================
+#==========================================
 # セーブ画面を終わる
-#=========================================================================================
+#==========================================
 *exit
 ;tempload num: 0, sound: false, toback: true
-;trans method: "crossfade", time: 200
+;trans method: "crossfade", time: "&tv.system.save.fadeoutTime"
 ;unlockscreenshot
 ;historyopt enabled: true
 ;return

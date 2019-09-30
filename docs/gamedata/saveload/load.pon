@@ -1,45 +1,64 @@
+#=========================================================================================
 # ロード画面
+#
+# 「設定」の部分で使用するレイヤー、背景画像等を設定して使用してください。
+#=========================================================================================
 *load_start
-;tempsave num: 0
-;historyopt enabled: false
-;rclick enabled: false
-;backlay
 
+#==========================================
+# ▼▼ 設定 ここから ▼▼
+#==========================================
 ---
 if (tv.system == null) tv.system = {};
 tv.system.load = {
   // 背景画像
   bg: "saveload/load.png",
 
-  // ボタン用レイヤ
-  btnLay: tv.layer.load + 1,
-  // テキスト用レイヤ
-  textLay: tv.layer.load + 2,
+  // 背景用レイヤー
+  baseLay: 26,
+
+  // ボタン表示用レイヤー
+  btnLay: 27,
+
+  // テキスト表示用レイヤー
+  textLay: 28,
 
   // トランジションの時間
   transTime: 200,
-
-  // [内部処理用] ロード番号
-  loadPageNum: 0,
 };
 ---
+#==========================================
+# ▲▲ 設定 ここまで ▲▲
+#==========================================
 
-#=========================================================================================
+;tempsave num: 0
+;historyopt enabled: false
+;rclick enabled: false
+;backlay
+
+---
+// [内部処理用] ロード番号
+tv.system.load.loadPageNum = 0;
+tv.system.load.fadeinTime = tv.system.load.transTime;
+tv.system.load.fadeoutTime = tv.system.load.transTime;
+---
+
+#==========================================
 # 描画処理
-#=========================================================================================
+#==========================================
 *draw
 
 ;currentpage page: "back"
 
 # 背景の設定
 ;image {
-  lay: "&tv.layer.load",
+  lay: "&tv.system.load.baseLay",
   file: "&tv.system.load.bg",
   visible: false,
   x: 0,
   y: 0
 }
-;layopt lay: "&tv.layer.load", visible: true
+;layopt lay: "&tv.system.load.baseLay", visible: true
 
 # ボタン用レイヤの設定
 ;layopt lay: "&tv.system.load.btnLay", x: 0, y: 0, width: 1280, height: 720, visible: true
@@ -206,7 +225,7 @@ PAGE:
 
 
 # トランジションで表示
-;trans method: "crossfade", time: "&tv.system.load.transTime"
+;trans method: "crossfade", time: "&tv.system.load.fadeinTime"
 ;waittrans canskip: false
 
 *unlock_load_buttons
@@ -218,11 +237,11 @@ PAGE:
 
 
 
-#=========================================================================================
+#==========================================
 # ページ切り替え
-#=========================================================================================
+#==========================================
 *on_click_page_button
--tv.system.load.transTime = 100;
+-tv.system.load.fadeinTime = 100;
 ;if exp: "tv.system.load.loadPageNum == tv.clickedPageNum"
   ;jump label: "unlock_load_buttons"
 ;else
@@ -232,15 +251,15 @@ PAGE:
 ;s
 
 
-#=========================================================================================
+#==========================================
 # ロードする
-#=========================================================================================
+#==========================================
 *on_click_load_button
--tv.dialogMessage = "No." + (tv.clickedloadNum + 1) + " をロードしますか？";
+-tv.system.dialogMessage = "No." + (tv.clickedloadNum + 1) + " をロードしますか？";
 ;call file: "dialog/confirm_dialog.pon", label: "show_dialog"
-;if exp: "tv.dialogResult"
+;if exp: "tv.system.dialogResult"
   ;load num: "&tv.clickedloadNum"
-  -tv.system.load.transTime = 100;
+  -tv.system.load.fadeinTime = 100;
   ;jump label: "draw"
 ;else
   ;jump label: "unlock_load_buttons"
@@ -248,15 +267,15 @@ PAGE:
 ;s
 
 
-#=========================================================================================
+#==========================================
 # 削除する
-#=========================================================================================
+#==========================================
 *on_click_delete_button
--tv.dialogMessage = "No." + (tv.clickedDeleteNum + 1) + " のデータを削除しますか？";
+-tv.system.dialogMessage = "No." + (tv.clickedDeleteNum + 1) + " のデータを削除しますか？";
 ;call file: "dialog/confirm_dialog.pon", label: "show_dialog"
-;if exp: "tv.dialogResult"
+;if exp: "tv.system.dialogResult"
   ;deletesavedata num: "&tv.clickedDeleteNum"
-  -tv.system.load.transTime = 100;
+  -tv.system.load.fadeinTime = 100;
   ;jump label: "draw"
 ;else
   ;jump label: "unlock_load_buttons"
@@ -264,12 +283,12 @@ PAGE:
 ;s
 
 
-#=========================================================================================
+#==========================================
 # ロード画面を終わる
-#=========================================================================================
+#==========================================
 *exit
 ;tempload num: 0, sound: false, toback: true
-;trans method: "crossfade", time: 200
+;trans method: "crossfade", time: "&tv.system.load.fadeoutTime"
 ;historyopt enabled: true
 ;return
 

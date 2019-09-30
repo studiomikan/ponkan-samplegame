@@ -1,0 +1,199 @@
+#=========================================================================================
+# システムボタン
+#
+# 「設定」の部分で使用するレイヤー、背景画像等を設定して使用してください。
+# このスクリプトを実行すると、レイヤーエイリアスに sysbtn が追加されます。
+#=========================================================================================
+
+#==========================================
+# ▼▼ 設定 ここから ▼▼
+#==========================================
+---
+tv.sysbtn = {
+  // システムボタンを表示するレイヤー
+  lay: 24,
+
+  // システムボタンレイヤーの表示位置
+  x: (1280 - 630) / 2,
+  y: 720 - 40,
+
+  // システムボタンレイヤーのサイズ
+  // 配置するボタンのサイズに合わせて調整してください。
+  width: 640,
+  height: 40,
+
+  // 各システムボタンの設定
+  // 必要ないボタンの部分はコメントアウトするか、削除してください。
+  // 表示位置はシステムボタンレイヤー内での表示位置であることに注意してください。
+  buttons: [
+    // セーブボタン
+    {
+      // ボタン画像
+      image: "sysbtn/save.png",
+      // コール先スクリプト
+      file:  "saveload/save.pon",
+      // コール先ラベル
+      label: "save_start",
+      // 押下時のJavaScript
+      exp:   "",
+      // 表示位置
+      x:     0,
+      y:     0,
+    },
+    {
+      // ボタン画像
+      image: "sysbtn/load.png",
+      // コール先スクリプト
+      file:  "saveload/load.pon",
+      // コール先ラベル
+      label: "load_start",
+      // 押下時のJavaScript
+      exp:   "",
+      // 表示位置
+      x:     100,
+      y:     0,
+    },
+    {
+      // ボタン画像
+      image: "sysbtn/skip.png",
+      // コール先スクリプト
+      file:  "sysbtn/sysbtn.pon",
+      // コール先ラベル
+      label: "act_skip",
+      // 押下時のJavaScript
+      exp:   "",
+      // 表示位置
+      x:     200,
+      y:     0,
+    },
+    {
+      // ボタン画像
+      image: "sysbtn/auto.png",
+      // コール先スクリプト
+      file:  "sysbtn/sysbtn.pon",
+      // コール先ラベル
+      label: "act_auto",
+      // 押下時のJavaScript
+      exp:   "",
+      // 表示位置
+      x:     300,
+      y:     0,
+    },
+    {
+      // ボタン画像
+      image: "sysbtn/log.png",
+      // コール先スクリプト
+      file:  "sysbtn/sysbtn.pon",
+      // コール先ラベル
+      label: "act_log",
+      // 押下時のJavaScript
+      exp:   "",
+      // 表示位置
+      x:     400,
+      y:     0,
+    },
+    {
+      // ボタン画像
+      image: "sysbtn/config.png",
+      // コール先スクリプト
+      file:  "config/config.pon",
+      // コール先ラベル
+      label: "config_start",
+      // 押下時のJavaScript
+      exp:   "",
+      // 表示位置
+      x:     500,
+      y:     0,
+    },
+    {
+      // ボタン画像
+      image: "sysbtn/close.png",
+      // コール先スクリプト
+      file:  "sysbtn/sysbtn.pon",
+      // コール先ラベル
+      label: "act_close",
+      // 押下時のJavaScript
+      exp:   "",
+      // 表示位置
+      x:     600,
+      y:     0,
+    },
+  ]
+}
+---
+#==========================================
+# ▲▲ 設定 ここまで ▲▲
+#==========================================
+
+# エイリアス設定
+;layalias name: "sysbtn", lay: "&tv.sysbtn.lay"
+
+# 親レイヤ指定
+;layopt {
+  lay:          "&tv.sysbtn.lay",
+  x:            "&tv.sysbtn.x",
+  y:            "&tv.sysbtn.y",
+  width:        "&tv.sysbtn.width",
+  height:       "&tv.sysbtn.height",
+  visible:      true,
+  autohide:     true,
+}
+
+# ボタン配置
+- tv.x = 0
+;layopt lay: "&tv.sysbtn.lay", visible: false
+;for loops: "&tv.sysbtn.buttons.length", indexvar: "i"
+  - tv.button = tv.sysbtn.buttons[tv.i];
+  ;imagebutton {
+    lay:          "&tv.sysbtn.lay",
+    imagefile:    "&tv.button.image",
+    x:            "&tv.button.x",
+    y:            "&tv.button.y",
+    exp:          "&tv.button.exp",
+    jump:         false,
+    call:         true,
+    file:         "&tv.button.file",
+    label:        "&tv.button.label",
+    system:       true
+  }
+;endfor
+
+;return
+;s
+
+
+# セーブ
+*act_save
+- alert('save');
+;return
+
+# ロード
+*act_load
+- alert('load');
+;return
+
+# スキップ
+*act_skip
+;startskip
+;return forcestart: true
+
+# オート
+*act_auto
+;startautomode
+;return forcestart: true
+
+# ログ
+*act_log
+;showhistory
+;return
+
+# コンフィグ
+*act_config
+- alert('config');
+;return
+
+# メッセージレイヤを隠す
+*act_close
+;hidemessages
+;return
+

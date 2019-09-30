@@ -11,7 +11,6 @@
 ;layalias name: "button", lay: "&tv.layer.menubutton"
 ;layalias name: "rule1", lay: "4"
 ;layalias name: "rule2", lay: "5"
-;layalias name: "sysbtn", lay: "&tv.layer.systembutton"
 ;commandshortcut ch: "$", command: "br"
 
 ###########################

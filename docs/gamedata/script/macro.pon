@@ -29,7 +29,7 @@
 # 全画面のメッセージレイヤに設定
 ######################################
 ;macro name: "full_mes"
-  ;layopt lay: "message", x: 0, y: 0, width: 1280, height: 720
+  ;layopt lay: "message", x: 20, y: 20, width: 1280-40, height: 720-40
   ;mesopt {
     lay: "message",
     fontsize: 28,
@@ -37,10 +37,10 @@
     linepitch: 10,
     weight: "normal",
     color: "0xFFFFFF",
-    margint: 50,
-    marginr: 50,
-    marginb: 50,
-    marginl: 50,
+    margint: 30,
+    marginr: 30,
+    marginb: 30,
+    marginl: 30,
   }
   ;fillcolor lay: "message", color: 0x000000, alpha: 0.4
   ;clear lay: "message"
