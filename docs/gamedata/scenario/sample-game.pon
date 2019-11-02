@@ -121,6 +121,10 @@
   lay: "button", x: 70, y: "&tv.y+=50", width: "&tv.width", height: 40, bgcolors: [0xFFFFFF,0xFFFFFF,0xFFFFFF], bgalphas: [0, 0.2, 0.3], margint: 5, marginl: 5, align: "left", jump: true, label: "on_click_menu",
   text: "・レイヤーフィルター", exp: "tv.jump_target_file = 'scenario/filter.pon'"
 }
+;textbutton {
+  lay: "button", x: 70, y: "&tv.y+=50", width: "&tv.width", height: 40, bgcolors: [0xFFFFFF,0xFFFFFF,0xFFFFFF], bgalphas: [0, 0.2, 0.3], margint: 5, marginl: 5, align: "left", jump: true, label: "on_click_menu",
+  text: "・動画再生", exp: "tv.jump_target_file = 'scenario/video.pon'"
+}
 
 ;image lay: "base", file: "image/bg01.jpg", visible: true
 ;layopt lay: "sysbtn", visible: false

@@ -1,0 +1,43 @@
+#################################################################
+# 動画再生
+#################################################################
+*start
+~動画再生
+
+;full_mes
+;layopt lay: "message", visible: true
+
+【動画再生】
+;lbrbr
+
+Ponkan3では、レイヤーに動画ファイルを読み込んで再生することができます。
+;lbr
+再生できる動画ファイル形式はブラウザに依存します。
+;lbrbr
+
+レイヤー1に動画を読み込んで再生してみます。
+;lbr
+
+;loadvideo lay: 1, file: "video/sample.mp4", width: 1280, height: 720, x: 0, y: 0, visible: true, loop: false
+;waitvideo canskip: false
+;freevideo lay: 1
+再生しました。
+;lbr
+
+拡大・縮小した状態での再生や、ループ再生なども可能です。
+;lbr
+;loadvideo lay: 1, file: "video/sample.mp4", width: 640, height: 360, x: 320, y: 180, visible: true, loop: true
+こんな感じです。
+;pcl
+
+オープニングムービー、エンディングムービーなどに利用するほか、
+背景に画像ではなく動画を用いたりなど、様々な用途で使用できます。
+;lbrbr
+
+ただ、動画はファイルサイズが大きく、読み込みに時間がかかるため、
+使いどころを考えながら利用しましょう。
+;p
+
+;freevideo lay: "all"
+
+;jump file: "scenario/sample-game.pon", label: "show_menu"
