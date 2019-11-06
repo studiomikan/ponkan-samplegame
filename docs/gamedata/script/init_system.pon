@@ -84,7 +84,6 @@ tv.layer = {
 }
 ;image lay: "mes", file: "image/message.png"
 #;fillcolor lay: "message", color: 0x000000, alpha: 0.75
-;textspeed unread: 20, read: 20
 ;clear lay: "all"
 
 
