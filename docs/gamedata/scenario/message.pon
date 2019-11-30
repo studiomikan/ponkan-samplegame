@@ -16,6 +16,9 @@ Ponkan3のメッセージテキストには、様々な効果をかけること�
 ;mesopt color: 0xFFFF00, lineheight: 40
 色を変えたり、
 ;l
+;mesopt color: [0x05FBFF, 0x1D62F0], lineheight: 40
+グラデーションしたり、
+;l
 ;mesopt color: 0xFFFFFF, fontweight: "normal", edgewidth: 2, edgecolor: 0xFF0000
 縁取りしたり、
 ;l
