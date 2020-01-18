@@ -108,8 +108,8 @@ tv.system.load.fadeoutTime = tv.system.load.transTime;
   if (tv.lineList[0] == null) { tv.lineList[0] = ""; }
   if (tv.lineList[1] == null) { tv.lineList[1] = ""; }
   if (tv.lineList[2] == null) { tv.lineList[2] = ""; }
-  tv.exp = "tv.clickedloadNum = " + tv.loadNum + ";";
-  tv.deleteExp = "tv.clickedDeleteNum = " + tv.loadNum + ";";
+  tv.onclick = "tv.clickedloadNum = " + tv.loadNum + ";";
+  tv.onClickDelete = "tv.clickedDeleteNum = " + tv.loadNum + ";";
   ---
     ;if exp: "ponkan.existSaveData(tv.loadNum)"
     ;textbutton {
@@ -121,7 +121,7 @@ tv.system.load.fadeoutTime = tv.system.load.transTime;
       height: 150,
       bgcolors: ["0xFFFFFF", "0xFFFFFF", "0xFFFFFF"],
       bgalphas: [0.75, 0.85, 0.9],
-      exp:    "&tv.exp",
+      onclick:  "&tv.onclick",
       jump:   true,
       label:  "on_click_load_button"
     }
@@ -166,7 +166,7 @@ tv.system.load.fadeoutTime = tv.system.load.transTime;
       imagefile: "saveload/close_button_small.png",
       x:         "&tv.x + (550 - 25)",
       y:         "&tv.y + 10",
-      exp:       "&tv.deleteExp",
+      onclick:   "&tv.onClickDelete",
       jump:      true,
       label:     "on_click_delete_button"
     }
@@ -190,7 +190,7 @@ PAGE:
   ---
   tv.x = tv.pageButtonX + 80 + (tv.i * 40);
   tv.y = tv.pageButtonY;
-  tv.exp = "tv.clickedPageNum = " + tv.i + ";";
+  tv.onclick = "tv.clickedPageNum = " + tv.i + ";";
   if (tv.i == tv.system.load.loadPageNum) {
     tv.bgalphas = [1, 1, 1];
   } else {
@@ -206,7 +206,7 @@ PAGE:
     height: 30,
     bgcolors: ["0xFFFFFF", "0xFFFFFF", "0xFFFFFF"],
     bgalphas: "&tv.bgalphas",
-    exp:    "&tv.exp",
+    onclick:  "&tv.onclick",
     jump:   true,
     label:  "on_click_page_button"
   }

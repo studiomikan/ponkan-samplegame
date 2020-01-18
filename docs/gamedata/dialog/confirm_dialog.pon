@@ -74,7 +74,7 @@ tv.system.dialog = {
   imagefile: "&tv.system.dialog.yes.file",
   x:         "&tv.system.dialog.yes.x",
   y:         "&tv.system.dialog.yes.y",
-  exp:      "tv.system.dialogResult = true",
+  onclick:   "tv.system.dialogResult = true",
   jump:     true,
   label:    "dialog_return",
 }
@@ -83,7 +83,7 @@ tv.system.dialog = {
   imagefile: "&tv.system.dialog.no.file",
   x:         "&tv.system.dialog.no.x",
   y:         "&tv.system.dialog.no.y",
-  exp:      "tv.system.dialogResult = false",
+  onclick:   "tv.system.dialogResult = false",
   jump:     true,
   label:    "dialog_return",
 }
