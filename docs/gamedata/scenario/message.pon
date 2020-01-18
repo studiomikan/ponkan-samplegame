@@ -34,12 +34,16 @@ Ponkan3のメッセージテキストには、様々な効果をかけること�
 ;mesopt fontsize: 12
 小さい文字、
 ;l
-;mesopt fontsize: 28
+;mesopt fontsize: 28, lineheight: 30, linepitch: 30
+;br
 ;ruby text: "かん"
 漢
 ;ruby text: "じ"
-字にルビを振ったりなど。
-;lbrbr
+字にルビを
+;ruby text: "ふ"
+振ったりなど。
+;mesopt linepitch: 10
+;lbr
 
 ;mesopt fontsize: 28, lineheight: 28
 ;mesopt align: "center"
@@ -53,8 +57,7 @@ Ponkan3のメッセージテキストには、様々な効果をかけること�
 「
 ;indent
 こんな風に、カギカッコで$
-インデントして表示することも$
-できます」
+インデントして表示することもできます」
 ;pcl
 
 ;win_mes
