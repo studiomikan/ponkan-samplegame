@@ -1,6 +1,6 @@
 # ponkan3-samplegame
 
-[Ponkan3](https://github.com/okayumoka/ponkan3) の基本的な機能を紹介するサンプルゲームです。
+[Ponkan3](https://github.com/studiomikan/ponkan3) の基本的な機能を紹介するサンプルゲームです。
 
 Play: https://studiomikan.github.io/ponkan3-samplegame/
 
