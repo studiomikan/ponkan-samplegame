@@ -57,7 +57,7 @@
 ;win_mes
 こんにちは。
 ;lbr
-このスクリプトは、Ponkan3の基本機能について紹介するサンプルゲームです。
+このスクリプトは、Ponkanの基本機能について紹介するサンプルゲームです。
 ;pcl
 
 知りたい内容を選んでね。
@@ -75,7 +75,7 @@
 ;layopt lay: "button", visible: true, x: 0, y: 0, width: 1280, height: 720
 ;messageopt lay: "button", fontsize: 30, lineheight: 30
 ;clear lay: "button"
-;ch lay: "button", text: "Ponkan3サンプルメニュー"
+;ch lay: "button", text: "Ponkanサンプルメニュー"
 ;messageopt lay: "button", fontsize: 26, lineheight: 26
 ;endnowait
 
@@ -83,7 +83,7 @@
 - tv.width = 500;
 ;textbutton {
   lay: "button", x: 70, y: "&tv.y+=50", width: "&tv.width", height: 40, bgcolors: [0xFFFFFF,0xFFFFFF,0xFFFFFF], bgalphas: [0, 0.2, 0.3], margint: 5, marginl: 5, align: "left", jump: true, label: "on_click_menu",
-  text: "・Ponkan3について", onclick: "tv.jump_target_file = 'scenario/about.pon'"
+  text: "・Ponkanについて", onclick: "tv.jump_target_file = 'scenario/about.pon'"
 }
 ;textbutton {
   lay: "button", x: 70, y: "&tv.y+=50", width: "&tv.width", height: 40, bgcolors: [0xFFFFFF,0xFFFFFF,0xFFFFFF], bgalphas: [0, 0.2, 0.3], margint: 5, marginl: 5, align: "left", jump: true, label: "on_click_menu",

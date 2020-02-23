@@ -1,7 +1,7 @@
 {
-  "name": "ponkan3-sample-game",
+  "name": "ponkan-sample-game",
   "version": "1.0.0",
-  "description": "ponkan3 sample game",
+  "description": "ponkan sample game",
   "main": "main.js",
   "author": "okayu",
   "private": true,
@@ -14,8 +14,8 @@
     "start": "http-server docs -p 8081 -o http://localhost:8081/index.html"
   },
   "build": {
-    "appId": "net.studiomikan.ponkan3.template",
-    "productName": "Ponkan3Template",
+    "appId": "net.studiomikan.ponkan.template",
+    "productName": "PonkanTemplate",
     "win": {
       "target": [
         {

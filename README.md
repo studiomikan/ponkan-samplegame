@@ -1,10 +1,10 @@
-# ponkan3-samplegame
+# ponkan-samplegame
 
-[Ponkan3](https://github.com/studiomikan/ponkan3) の基本的な機能を紹介するサンプルゲームです。
+[Ponkan](https://github.com/studiomikan/ponkan) の基本的な機能を紹介するサンプルゲームです。
 
-Play: https://studiomikan.github.io/ponkan3-samplegame/
+Play: https://studiomikan.github.io/ponkan-samplegame/
 
-## External Libraries used by ponkan3-samplegame
+## External Libraries used by ponkan-samplegame
 
 ### Fonts
 
@@ -18,4 +18,4 @@ Play: https://studiomikan.github.io/ponkan3-samplegame/
 
 ## License
 
-ponkan3-samplegame is released under the MIT License.
+ponkan-samplegame is released under the MIT License.

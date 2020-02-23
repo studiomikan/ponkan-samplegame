@@ -124,7 +124,7 @@ var exObj = {
     systemVolume:     function(value) { ponkan.getSoundBuffer("system").gvolume = value; },
     scaleMode: function(mode, width, height) {
       ponkan.scaleMode = mode;
-      if (ponkan.scaleMode === Ponkan3.ScaleMode.FIXED) {
+      if (ponkan.scaleMode === Ponkan.ScaleMode.FIXED) {
         ponkan.setFixedScaleSize(width, height);
       }
     },
@@ -290,10 +290,10 @@ tv.varName = "systemVolume";
 ### スケーリング
 ;if exp: "tv.system.config.drawTarget.indexOf('scaleMode') >= 0"
   ---
-  tv.jump = !(tv.system.config.getValue.scaleMode() === Ponkan3.ScaleMode.FULLSCREEN);
+  tv.jump = !(tv.system.config.getValue.scaleMode() === Ponkan.ScaleMode.FULLSCREEN);
   tv.label = tv.jump ? "draw" : "unlock_config_buttons";
   tv.bgalphas = tv.jump ? [0.5, 0.7, 0.9] : [1, 1, 1];
-  tv.onclick = "tv.system.config.setValue.scaleMode(Ponkan3.ScaleMode.FULLSCREEN); tv.system.config.drawTarget = ['scaleMode'];";
+  tv.onclick = "tv.system.config.setValue.scaleMode(Ponkan.ScaleMode.FULLSCREEN); tv.system.config.drawTarget = ['scaleMode'];";
   ---
   ;layopt lay: "&tv.system.config.btnLayMap.scaleMode", x: "&tv.startX", y: 608
   ;clear lay: "&tv.system.config.btnLayMap.scaleMode"
@@ -305,10 +305,10 @@ tv.varName = "systemVolume";
     onclick: "&tv.onclick", jump: "&tv.jump", label: "&tv.label",
   }
   ---
-  tv.jump = !(tv.system.config.getValue.scaleMode() === Ponkan3.ScaleMode.FIT);
+  tv.jump = !(tv.system.config.getValue.scaleMode() === Ponkan.ScaleMode.FIT);
   tv.label = tv.jump ? "draw" : "unlock_config_buttons";
   tv.bgalphas = tv.jump ? [0.5, 0.7, 0.9] : [1, 1, 1];
-  tv.onclick = "tv.system.config.setValue.scaleMode(Ponkan3.ScaleMode.FIT); tv.system.config.drawTarget = ['scaleMode'];";
+  tv.onclick = "tv.system.config.setValue.scaleMode(Ponkan.ScaleMode.FIT); tv.system.config.drawTarget = ['scaleMode'];";
   ---
   ;textbutton {
     lay: "&tv.system.config.btnLayMap.scaleMode",
@@ -329,10 +329,10 @@ tv.varName = "systemVolume";
     tv.height = tv.resolutions[tv.i][1];
     tv.text = `${tv.width}x${tv.height}`;
     tv.jump = !(tv.system.config.getValue.fixedScaleWidth() === tv.width &&
-                tv.system.config.getValue.scaleMode() === Ponkan3.ScaleMode.FIXED);
+                tv.system.config.getValue.scaleMode() === Ponkan.ScaleMode.FIXED);
     tv.label = tv.jump ? "draw" : "unlock_config_buttons";
     tv.bgalphas = tv.jump ? [0.5, 0.7, 0.9] : [1, 1, 1];
-    tv.onclick = `tv.system.config.setValue.scaleMode(Ponkan3.ScaleMode.FIXED, ${tv.width}, ${tv.height});` +
+    tv.onclick = `tv.system.config.setValue.scaleMode(Ponkan.ScaleMode.FIXED, ${tv.width}, ${tv.height});` +
                  `tv.system.config.drawTarget = ["scaleMode"];`;
     ---
     ;textbutton {
