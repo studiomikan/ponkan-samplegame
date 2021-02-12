@@ -58,7 +58,7 @@ tv.system.save.fadeoutTime = tv.system.save.transTime;
   visible: false,
   x: 0,
   y: 0
-}
+};
 ;layopt lay: "&tv.system.save.baseLay", visible: true
 
 # ボタン用レイヤの設定
@@ -79,7 +79,7 @@ tv.system.save.fadeoutTime = tv.system.save.transTime;
   color: 0x000000,
   autoreturn: false,
   margint: 0, marginr: 0, marginb: 0, marginl: 0
-}
+};
 
 # ボタンをロック
 ;lockbuttons page: "fore"
@@ -124,14 +124,14 @@ tv.system.save.fadeoutTime = tv.system.save.transTime;
     onclick:  "&tv.onclick",
     jump:   true,
     label:  "on_click_save_button"
-  }
+  };
   ;childimage {
     lay:  "&tv.system.save.btnLay",
     file: "&tv.saveInfo.screenShot",
     x:    "&tv.x + 10",
     y:    "&tv.y + 10",
     alpha: 1
-  }
+  };
   ;mesopt fontsize: 14, lineheight: 14, color: 0x000000
   ;locate x: "&tv.x + 251", y: "&tv.y + 10"
   = "No." + (tv.saveNum + 1)
@@ -155,7 +155,7 @@ tv.system.save.fadeoutTime = tv.system.save.transTime;
       onclick:   "&tv.onClickDelete",
       jump:      true,
       label:     "on_click_delete_button"
-    }
+    };
   ;endif
 ;endfor
 ;endnowait
@@ -168,7 +168,7 @@ tv.pageButtonY = 20;
 ;mesopt {
   fontsize: 24, lineheight: 24, color: 0xFFFFFF,
   margint: 0, marginr: 0, marginb: 0, marginl: 0
-}
+};
 ;locate x: "&tv.pageButtonX", y: "&tv.pageButtonY"
 ;nowait
 PAGE:
@@ -195,7 +195,7 @@ PAGE:
     onclick:  "&tv.onclick",
     jump:   true,
     label:  "on_click_page_button"
-  }
+  };
 ;endfor
 ;endnowait
 
@@ -207,7 +207,7 @@ PAGE:
   y:         23,
   jump:      true,
   label:     "exit"
-}
+};
 
 
 # トランジションで表示

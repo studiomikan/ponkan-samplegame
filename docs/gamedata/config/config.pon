@@ -177,7 +177,7 @@ tv.system.config.fadeoutTime = tv.system.config.transTime;
     visible: false,
     x: 0,
     y: 0
-  }
+  };
   ;layopt lay: "&tv.system.config.baseLay", visible: true
 ;endif
 
@@ -244,7 +244,7 @@ tv.varName = "autoModeSpeed";
     width: 120, height: 24, bgcolors: ["0xFFFFFF", "0xFFFFFF", "0xFFFFFF"], bgalphas: "&tv.bgalphas",
     onclick: "tv.system.config.setValue.skipMode(0); tv.system.config.drawTarget = ['skipMode'];",
     jump: "&tv.jump", label: "&tv.label",
-  }
+  };
   ---
   tv.jump = !(tv.system.config.getValue.skipMode() == 1);
   tv.label = tv.jump ? "draw" : "unlock_config_buttons";
@@ -256,7 +256,7 @@ tv.varName = "autoModeSpeed";
     width: 120, height: 24, bgcolors: ["0xFFFFFF", "0xFFFFFF", "0xFFFFFF"], bgalphas: "&tv.bgalphas",
     onclick: "tv.system.config.setValue.skipMode(1); tv.system.config.drawTarget = ['skipMode'];",
     jump: "&tv.jump", label: "&tv.label",
-  }
+  };
 ;endif
 
 # BGM
@@ -303,7 +303,7 @@ tv.varName = "systemVolume";
     text: "フルスクリーン", x: 0, y: 0,
     width: 170, height: 24, bgcolors: ["0xFFFFFF", "0xFFFFFF", "0xFFFFFF"], bgalphas: "&tv.bgalphas",
     onclick: "&tv.onclick", jump: "&tv.jump", label: "&tv.label",
-  }
+  };
   ---
   tv.jump = !(tv.system.config.getValue.scaleMode() === Ponkan.ScaleMode.FIT);
   tv.label = tv.jump ? "draw" : "unlock_config_buttons";
@@ -315,7 +315,7 @@ tv.varName = "systemVolume";
     text: "ウィンドウサイズ", x: 180, y: 0,
     width: 190, height: 24, bgcolors: ["0xFFFFFF", "0xFFFFFF", "0xFFFFFF"], bgalphas: "&tv.bgalphas",
     onclick: "&tv.onclick", jump: "&tv.jump", label: "&tv.label",
-  }
+  };
   ---
   tv.resolutions = [
     [1280, 720],
@@ -340,7 +340,7 @@ tv.varName = "systemVolume";
       text: "&tv.text", x: "&tv.x", y: 0,
       width: 120, height: 24, bgcolors: ["0xFFFFFF", "0xFFFFFF", "0xFFFFFF"], bgalphas: "&tv.bgalphas",
       onclick: "&tv.onclick", jump: "&tv.jump", label: "&tv.label",
-    }
+    };
   ;endfor
 ;endif
 
@@ -354,7 +354,7 @@ tv.varName = "systemVolume";
   y:         23,
   jump:      true,
   label:     "exit"
-}
+};
 
 # トランジションで表示
 ;trans method: "crossfade", time: "&tv.system.config.fadeinTime"
@@ -410,7 +410,7 @@ tv.lay = tv.system.config.btnLayMap[tv.varName];
     onclick:  "&tv.onclick",
     jump:   "&tv.jump",
     label:  "&tv.label",
-  }
+  };
   -tv.x += 32;
 ;endfor
 ;endnowait

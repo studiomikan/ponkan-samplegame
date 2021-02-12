@@ -68,7 +68,7 @@ tv.system.dialog = {
   file:     "&tv.system.dialog.bg.file",
   x:        "&(ponkan.config.width - tv.system.dialog.bg.width) / 2",
   y:        "&(ponkan.config.height - tv.system.dialog.bg.height) / 2",
-}
+};
 ;imagebutton {
   lay:       "&tv.system.dialog.baseLay",
   imagefile: "&tv.system.dialog.yes.file",
@@ -77,7 +77,7 @@ tv.system.dialog = {
   onclick:   "tv.system.dialogResult = true",
   jump:     true,
   label:    "dialog_return",
-}
+};
 ;imagebutton {
   lay:       "&tv.system.dialog.baseLay",
   imagefile: "&tv.system.dialog.no.file",
@@ -86,7 +86,7 @@ tv.system.dialog = {
   onclick:   "tv.system.dialogResult = false",
   jump:     true,
   label:    "dialog_return",
-}
+};
 
 ;nowait
 ;mesopt {
@@ -94,7 +94,7 @@ tv.system.dialog = {
   color:    0x000000,
   align:    "center",
   fontsize: 26
-}
+};
 ;locate lay: "&tv.system.dialog.baseLay", x: "&tv.system.dialog.text.centerX", y: "&tv.system.dialog.text.centerY"
 ;ch lay: "&tv.system.dialog.baseLay", text: "&tv.system.dialogMessage"
 ;endnowait

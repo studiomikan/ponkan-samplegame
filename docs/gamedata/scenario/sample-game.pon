@@ -47,7 +47,7 @@
   marginr: 50,
   marginb: 50,
   marginl: 50
-}
+};
 
 
 ###########################
@@ -84,47 +84,47 @@
 ;textbutton {
   lay: "button", x: 70, y: "&tv.y+=50", width: "&tv.width", height: 40, bgcolors: [0xFFFFFF,0xFFFFFF,0xFFFFFF], bgalphas: [0, 0.2, 0.3], margint: 5, marginl: 5, align: "left", jump: true, label: "on_click_menu",
   text: "・Ponkanについて", onclick: "tv.jump_target_file = 'scenario/about.pon'"
-}
+};
 ;textbutton {
   lay: "button", x: 70, y: "&tv.y+=50", width: "&tv.width", height: 40, bgcolors: [0xFFFFFF,0xFFFFFF,0xFFFFFF], bgalphas: [0, 0.2, 0.3], margint: 5, marginl: 5, align: "left", jump: true, label: "on_click_menu",
   text: "・メッセージ表示", onclick: "tv.jump_target_file = 'scenario/message.pon'"
-}
+};
 ;textbutton {
   lay: "button", x: 70, y: "&tv.y+=50", width: "&tv.width", height: 40, bgcolors: [0xFFFFFF,0xFFFFFF,0xFFFFFF], bgalphas: [0, 0.2, 0.3], margint: 5, marginl: 5, align: "left", jump: true, label: "on_click_menu",
   text: "・背景・立ち絵表示", onclick: "tv.jump_target_file = 'scenario/image.pon'"
-}
+};
 ;textbutton {
   lay: "button", x: 70, y: "&tv.y+=50", width: "&tv.width", height: 40, bgcolors: [0xFFFFFF,0xFFFFFF,0xFFFFFF], bgalphas: [0, 0.2, 0.3], margint: 5, marginl: 5, align: "left", jump: true, label: "on_click_menu",
   text: "・レイヤー移動", onclick: "tv.jump_target_file = 'scenario/move.pon'"
-}
+};
 ;textbutton {
   lay: "button", x: 70, y: "&tv.y+=50", width: "&tv.width", height: 40, bgcolors: [0xFFFFFF,0xFFFFFF,0xFFFFFF], bgalphas: [0, 0.2, 0.3], margint: 5, marginl: 5, align: "left", jump: true, label: "on_click_menu",
   text: "・フレームアニメーション", onclick: "tv.jump_target_file = 'scenario/frameanim.pon'"
-}
+};
 ;textbutton {
   lay: "button", x: 70, y: "&tv.y+=50", width: "&tv.width", height: 40, bgcolors: [0xFFFFFF,0xFFFFFF,0xFFFFFF], bgalphas: [0, 0.2, 0.3], margint: 5, marginl: 5, align: "left", jump: true, label: "on_click_menu",
   text: "・トランジション", onclick: "tv.jump_target_file = 'scenario/trans.pon'"
-}
+};
 ;textbutton {
   lay: "button", x: 70, y: "&tv.y+=50", width: "&tv.width", height: 40, bgcolors: [0xFFFFFF,0xFFFFFF,0xFFFFFF], bgalphas: [0, 0.2, 0.3], margint: 5, marginl: 5, align: "left", jump: true, label: "on_click_menu",
   text: "・サウンド", onclick: "tv.jump_target_file = 'scenario/sound.pon'"
-}
+};
 ;textbutton {
   lay: "button", x: 70, y: "&tv.y+=50", width: "&tv.width", height: 40, bgcolors: [0xFFFFFF,0xFFFFFF,0xFFFFFF], bgalphas: [0, 0.2, 0.3], margint: 5, marginl: 5, align: "left", jump: true, label: "on_click_menu",
   text: "・分岐（ボタン、条件分岐）", onclick: "tv.jump_target_file = 'scenario/fork.pon'"
-}
+};
 ;textbutton {
   lay: "button", x: 70, y: "&tv.y+=50", width: "&tv.width", height: 40, bgcolors: [0xFFFFFF,0xFFFFFF,0xFFFFFF], bgalphas: [0, 0.2, 0.3], margint: 5, marginl: 5, align: "left", jump: true, label: "on_click_menu",
   text: "・セーブ/ロード/コンフィグ画面", onclick: "tv.jump_target_file = 'scenario/save-load-config.pon'"
-}
+};
 ;textbutton {
   lay: "button", x: 70, y: "&tv.y+=50", width: "&tv.width", height: 40, bgcolors: [0xFFFFFF,0xFFFFFF,0xFFFFFF], bgalphas: [0, 0.2, 0.3], margint: 5, marginl: 5, align: "left", jump: true, label: "on_click_menu",
   text: "・レイヤーフィルター", onclick: "tv.jump_target_file = 'scenario/filter.pon'"
-}
+};
 ;textbutton {
   lay: "button", x: 70, y: "&tv.y+=50", width: "&tv.width", height: 40, bgcolors: [0xFFFFFF,0xFFFFFF,0xFFFFFF], bgalphas: [0, 0.2, 0.3], margint: 5, marginl: 5, align: "left", jump: true, label: "on_click_menu",
   text: "・動画再生", onclick: "tv.jump_target_file = 'scenario/video.pon'"
-}
+};
 
 ;image lay: "base", file: "image/bg01.jpg", visible: true
 ;layopt lay: "sysbtn", visible: false

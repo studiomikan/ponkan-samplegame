@@ -43,7 +43,7 @@ Ponkanで分岐を実現する方法は2通りあります。
   align: "center",
   jump: true, label: "onclick_textbutton",
   exp: "console.log('テキストボタンを押した！')",
-}
+};
 ;imagebutton {
   lay: "message",
   imagefile: "image/image_button.png",
@@ -51,7 +51,7 @@ Ponkanで分岐を実現する方法は2通りあります。
   x: 50, y: 220,
   jump: true, label: "onclick_imagebutton",
   exp: "console.log('画像ボタンを押した！')",
-}
+};
 ;trans time: 0
 ;unlockbuttons
 ;s

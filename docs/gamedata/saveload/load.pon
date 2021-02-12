@@ -57,7 +57,7 @@ tv.system.load.fadeoutTime = tv.system.load.transTime;
   visible: false,
   x: 0,
   y: 0
-}
+};
 ;layopt lay: "&tv.system.load.baseLay", visible: true
 
 # ボタン用レイヤの設定
@@ -78,7 +78,7 @@ tv.system.load.fadeoutTime = tv.system.load.transTime;
   color: 0x000000,
   autoreturn: false,
   margint: 0, marginr: 0, marginb: 0, marginl: 0
-}
+};
 
 # ボタンをロック
 ;lockbuttons page: "fore"
@@ -124,7 +124,7 @@ tv.system.load.fadeoutTime = tv.system.load.transTime;
       onclick:  "&tv.onclick",
       jump:   true,
       label:  "on_click_load_button"
-    }
+    };
   ;else
     ;textbutton {
       lay:    "&tv.system.load.btnLay",
@@ -137,7 +137,7 @@ tv.system.load.fadeoutTime = tv.system.load.transTime;
       bgalphas: [0.75, 0.75, 0.75],
       jump:   true,
       label:  "unlock_load_buttons"
-    }
+    };
   ;endif
   ;childimage {
     lay:  "&tv.system.load.btnLay",
@@ -145,7 +145,7 @@ tv.system.load.fadeoutTime = tv.system.load.transTime;
     x:    "&tv.x + 10",
     y:    "&tv.y + 10",
     alpha: 1
-  }
+  };
   ;mesopt fontsize: 14, lineheight: 14, color: 0x000000
   ;locate x: "&tv.x + 251", y: "&tv.y + 10"
   = "No." + (tv.loadNum + 1)
@@ -169,7 +169,7 @@ tv.system.load.fadeoutTime = tv.system.load.transTime;
       onclick:   "&tv.onClickDelete",
       jump:      true,
       label:     "on_click_delete_button"
-    }
+    };
   ;endif
 ;endfor
 ;endnowait
@@ -182,7 +182,7 @@ tv.pageButtonY = 20;
 ;mesopt {
   fontsize: 24, lineheight: 24, color: 0xFFFFFF,
   margint: 0, marginr: 0, marginb: 0, marginl: 0
-}
+};
 ;locate x: "&tv.pageButtonX", y: "&tv.pageButtonY"
 ;nowait
 PAGE:
@@ -209,7 +209,7 @@ PAGE:
     onclick:  "&tv.onclick",
     jump:   true,
     label:  "on_click_page_button"
-  }
+  };
 ;endfor
 ;endnowait
 
@@ -221,7 +221,7 @@ PAGE:
   y:         23,
   jump:      true,
   label:     "exit"
-}
+};
 
 
 # トランジションで表示

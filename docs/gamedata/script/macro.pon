@@ -41,7 +41,7 @@
     marginr: 30,
     marginb: 30,
     marginl: 30,
-  }
+  };
   ;fillcolor lay: "message", color: 0x000000, alpha: 0.4
   ;clear lay: "message"
 ;endmacro
@@ -62,7 +62,7 @@
     marginr: 20,
     marginb: 20,
     marginl: 20
-  }
+  };
   ;image lay: "message", file: "image/message.png"
   ;clear lay: "message"
 ;endmacro
