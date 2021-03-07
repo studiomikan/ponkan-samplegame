@@ -64,7 +64,7 @@ tv.layer = {
   fontsize: 26,
   weight: "normal",
   color: "0xFFFFFF",
-  pitch: 1,
+  pitch: 0,
   lineheight: 26,
   linepitch: 10,
   align: "left",
